@@ -130,9 +130,4 @@ class database{
     }
 }
 
-
-/*
-
-$a = new database;
-$a->execute($options ='');///???????????*/
 ?>  
