@@ -5,6 +5,7 @@ $slide = $data['slide'];
 $tinnoibat = $data['tinnoibat'];
 $tinmoinhat1tin = $data['tinmoinhat1tin'];
 $tinmoinhat = $data['tinmoinhat'];
+$tinxemnhieu = $data['tinxemnhieu'];
 //print_r($tinmoinhat1tin);
 ?>
 
@@ -154,76 +155,32 @@ $tinmoinhat = $data['tinmoinhat'];
 						<div class="sap_tabs">	
 							<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 								<ul class="resp-tabs-list resp-tab-item grid1 resp-tab-active">
-									<span>most shared</span>
+									<span>Tin xem nhiều</span>
 									<div class="clear"></div>
 								</ul>				  	 
 								<div class="resp-tabs-container">
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+										<?php
+										foreach($tinxemnhieu as $xemnhieu):
+										?>
 										<div class="facts">
 											<div class="tab_list">
-												<img src="public/images/10.jpg" alt=" " class="img-responsive" />
+												<img src="public/images/tintuc/<?=$xemnhieu->image?>" alt=" " class="img-responsive" />
 											</div>
 											<div class="tab_list1">
 												<ul>
-													<li><a href="#">Blogger</a> <label>|</label></li>
-													<li>30.03.2016</li>
+													<li>
+														<?=date('d-m-Y', strtotime($xemnhieu->created_at))?>
+													
+													</li>
 												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
+												<p><a href="#"><?=$xemnhieu->title?></a></p>
 											</div>
 											<div class="clearfix"> </div>
 										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/11.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="green">international</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/12.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="orange">general</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-										  <div class="clearfix"> </div>
-										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/10.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="orange1">business</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-										  <div class="clearfix"> </div>
-										</div>
-										<div class="facts">
-											<div class="tab_list">
-												<img src="public/images/12.jpg" alt=" " class="img-responsive" />
-											</div>
-											<div class="tab_list1">
-												<ul>
-													<li><a href="#" class="orange2">world</a> <label>|</label></li>
-													<li>30.03.2016</li>
-												</ul>
-												<p><a href="#">Nam libero tempore, cum soluta nobis.</a></p>
-											</div>
-										  <div class="clearfix"> </div>
-										</div>
+										<?php
+										endforeach
+										?>
 									</div>
 								</div>
 								<script src="public/js/easyResponsiveTabs.js" type="text/javascript"></script>

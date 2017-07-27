@@ -12,12 +12,15 @@ class HomeController extends controller{
 		$tinnoibat = $model->getTinNoibat();
 		$tinmoinhat1tin = $model->getTinMoiNhat1Tin();
 		$tinmoinhat = $model->getTinMoiNhat();
+		$tinxemnhieu = $model->getTinXemNhieu();
 		
 		$arrData = array(
 			'slide'=>$slide, 
 			'tinnoibat'=>$tinnoibat,
 			'tinmoinhat1tin'=>$tinmoinhat1tin,
-			'tinmoinhat'=>$tinmoinhat);
+			'tinmoinhat'=>$tinmoinhat,
+			'tinxemnhieu'=>$tinxemnhieu
+		);
 
 		return $this->loadView('trangchu',$arrData);
 	}

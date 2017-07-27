@@ -36,6 +36,14 @@ class HomeModel extends database{
 		return $this->loadAllRows();
 
 	}
+
+	public function getTinXemNhieu(){
+		$sql = "SELECT * FROM tintuc  ORDER BY views DESC LIMIT 0,5";
+		$this->setQuery($sql);
+
+		return $this->loadAllRows();
+
+	}
 }
 
 
