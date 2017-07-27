@@ -9,10 +9,15 @@ class HomeController extends controller{
 
 		$model = new HomeModel;
 		$slide = $model->getSlide();
-
-		$tintuc = 'asas';
+		$tinnoibat = $model->getTinNoibat();
+		$tinmoinhat1tin = $model->getTinMoiNhat1Tin();
+		$tinmoinhat = $model->getTinMoiNhat();
 		
-		$arrData = array('slide'=>$slide, 'tintuc'=>$tintuc);
+		$arrData = array(
+			'slide'=>$slide, 
+			'tinnoibat'=>$tinnoibat,
+			'tinmoinhat1tin'=>$tinmoinhat1tin,
+			'tinmoinhat'=>$tinmoinhat);
 
 		return $this->loadView('trangchu',$arrData);
 	}

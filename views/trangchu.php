@@ -2,7 +2,10 @@
 <?php
 
 $slide = $data['slide'];
-
+$tinnoibat = $data['tinnoibat'];
+$tinmoinhat1tin = $data['tinmoinhat1tin'];
+$tinmoinhat = $data['tinmoinhat'];
+//print_r($tinmoinhat1tin);
 ?>
 
 <!-- banner -->
@@ -27,9 +30,9 @@ $slide = $data['slide'];
 	  	
 	  	?>
 	    <div class="item <?php if($i==0) echo 'active' ?>">
-	      <img src="public/images/slide/<?=$slide[$i]->Hinh?>" alt="Chania" style="height: 550px">
+	      <img src="public/images/slide/<?=$slide[$i]->image?>" alt="Chania" style="height: 550px">
 	      <div class="carousel-caption">
-	        <h3><?=$slide[$i]->Ten?></h3>
+	        <h3><?=$slide[$i]->name?></h3>
 	      </div>
 	    </div>
 
@@ -56,11 +59,19 @@ $slide = $data['slide'];
 		<div class="container">
 			<div class="move-text">
 				<div class="breaking_news">
-					<h2>Breaking News</h2>
+					<h2>Tin nổi bật</h2>
 				</div>
 				<div class="marquee">
-					<div class="marquee1"><a class="breaking" href="single.html">A 5-year-old boy who recently returned to the U.S from Ebola-stricken West Africa is under observation after experiencing a fever.</a></div>
-					<div class="marquee2"><a class="breaking" href="single.html">The surprisingly successful president of the Philippines and peacemaking in the Philippines: Shaking it all up.</a></div>
+					<?php
+					foreach($tinnoibat as $noibat):
+
+					?>
+					<div class="marquee1">
+						<a class="breaking" href="detail.php"><?=$noibat->title?></a>
+					</div>
+					<?php
+					endforeach
+					?>
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
@@ -74,14 +85,12 @@ $slide = $data['slide'];
 				<div class="video-grids">
 					<div class="col-md-8 video-grids-left">
 						<div class="video-grids-left1">
-							<img src="public/images/9.jpg" alt=" " class="img-responsive" />
+							<img src="public/images/tintuc/<?=$tinmoinhat1tin->image?>" alt=" " class="img-responsive" />
 							
 							<div class="video-grid-pos">
-								<h3><span>Bellevue</span>  Towers in Dubai Downtown UAE</h3>
+								<h3><?=$tinmoinhat1tin->title?></h3>
 								<ul>
-									<li>9:32 <label>|</label></li>
-									<li><i>Adom Smith</i> <label>|</label></li>
-									<li><span>Blogger</span></li>
+									<li><?=date('h:i:s d/m/Y',strtotime($tinmoinhat1tin->created_at))?></li>
 								</ul>
 							</div>
 								
@@ -89,36 +98,24 @@ $slide = $data['slide'];
 						<div class="video-grids-left2">
 							<div class="course_demo1">
 								<ul id="flexiselDemo1">	
+								<?php
+								foreach($tinmoinhat as $tinmoi){
+
+
+								?>
 									<li>
 										<div class="item">
-											<img src="public/images/10.jpg" alt=" " class="img-responsive" />
+											<img src="public/images/tintuc/<?=$tinmoi->image?>" alt=" " class="img-responsive" style="height: 160px" />
 											
 											<div class="floods-text">
-												<h3>The fed and inequality <span>Blogger <label>|</label> <i>Adom Smith</i></span></h3>
-												<p>5:56</p>
+												<h3><?=$tinmoi->title?></h3>
+												<p><?=date('h:i',strtotime($tinmoi->created_at))?></p>
 											</div>
 										</div>
 									</li>
-									<li>
-										<div class="item">
-											<img src="public/images/11.jpg" alt=" " class="img-responsive" />
-											
-											<div class="floods-text">
-												<h3>The fastest insect in the world <span>Blogger <label>|</label> <i>Adom Smith</i></span></h3>
-												<p>5:56</p>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="item">
-											<img src="public/images/12.jpg" alt=" " class="img-responsive" />
-											
-											<div class="floods-text">
-												<h3>Billionaires versus Millionaires<span>Blogger <label>|</label> <i>Adom Smith</i></span></h3>
-												<p>5:56</p>
-											</div>
-										</div>
-									</li>
+								<?php
+								}
+								?>
 								</ul>
 							</div>
 							<!-- requried-jsfiles-for owl -->
@@ -127,7 +124,7 @@ $slide = $data['slide'];
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 3,
 									animationSpeed: 1000,
-									autoPlay: true,
+									autoPlay: false,
 									autoPlaySpeed: 3000,    		
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
