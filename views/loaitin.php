@@ -1,66 +1,32 @@
+<?php
+
+$tintuc = $data['tintuc'];
+//print_r($tintuc);
+
+?>
 <div class="banner-bottom">
 		<div class="container">
 			<!-- news-and-events -->
 				<div class="news">
 					<div class="news-grids">
 						<div class="col-md-8 news-grid-left">
-							<h3>latest news & events</h3>
+							<h3>latest news & upcoming-events-rights</h3>
 							<ul>
+								<?php 
+								foreach($tintuc as $news):
+								?>
 								<li>
 									<div class="news-grid-left1">
-										<img src="public/images/16.jpg" alt=" " class="img-responsive" />
+										<img src="public/images/tintuc/<?=$news->image?>" alt=" " class="img-responsive" />
 									</div>
 									<div class="news-grid-right1">
-										<h4><a href="single.html">Mexico's oil giant is in uncharted waters</a></h4>
-										<h5>By <a href="#">Elizibeth Malkin</a> <label>|</label> <i>30.03.2016</i></h5>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										<h4><a href="single.html"><?=$news->title?></a></h4>
+										<h5><i><?=date('d-m-Y', strtotime($news->created_at))?></i></h5>
+										<p><?=$news->summary?></p>
 									</div>
 									<div class="clearfix"> </div>
 								</li>
-								<li>
-									<div class="news-grid-left1">
-										<img src="public/images/17.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="news-grid-right1">
-										<h4><a href="single.html">second wave of votes to legalize marijuana</a></h4>
-										<h5>By <a href="#">james smith</a> <label>|</label> <i>30.03.2016</i></h5>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-									<div class="clearfix"> </div>
-								</li>
-								<li>
-									<div class="news-grid-left1">
-										<img src="public/images/13.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="news-grid-right1">
-										<h4><a href="single.html">Antares rocket, bound for space station, explodes</a></h4>
-										<h5>By <a href="#">Michael Drew</a> <label>|</label> <i>30.03.2016</i></h5>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-									<div class="clearfix"> </div>
-								</li>
-								<li>
-									<div class="news-grid-left1">
-										<img src="public/images/12.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="news-grid-right1">
-										<h4><a href="single.html">stronger family bonds, two years after hurricane sandy</a></h4>
-										<h5>By <a href="#">james smith</a> <label>|</label> <i>30.03.2016</i></h5>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-									<div class="clearfix"> </div>
-								</li>
-								<li>
-									<div class="news-grid-left1">
-										<img src="public/images/15.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="news-grid-right1">
-										<h4><a href="single.html">royal crush giants and force game 7</a></h4>
-										<h5>By <a href="#">Michael Drew</a> <label>|</label> <i>30.03.2016</i></h5>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-									<div class="clearfix"> </div>
-								</li>
+								<?php endforeach?>
 							</ul>
 						</div>
 						<div class="col-md-4 upcoming-events-right">

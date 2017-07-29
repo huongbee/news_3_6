@@ -1,8 +1,16 @@
 <?php
 
-include('dbconnect.php');
+include_once('dbconnect.php');
 
 class HomeModel extends database{
+
+	public function getMenu(){
+		$sql = "SELECT theloai.name, GROUP_CONCAT(loaitin.id, '--', loaitin.name, '--', loaitin.alias) as LoaiTin FROM theloai INNER JOIN loaitin ON theloai.id = loaitin.id_theloai GROUP BY theloai.name";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
+	}
+
+
 
 	public function getSlide(){
 		$sql = "SELECT * FROM slide";

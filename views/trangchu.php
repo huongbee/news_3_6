@@ -6,7 +6,7 @@ $tinnoibat = $data['tinnoibat'];
 $tinmoinhat1tin = $data['tinmoinhat1tin'];
 $tinmoinhat = $data['tinmoinhat'];
 $tinxemnhieu = $data['tinxemnhieu'];
-//print_r($tinmoinhat1tin);
+
 ?>
 
 <!-- banner -->

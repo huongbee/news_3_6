@@ -4,6 +4,11 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+//$menu = $data['menu'];
+//print_r($menu);
+
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -41,23 +46,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav cl-effect-18" id="cl-effect-18">
 				<li class="act"><a href="index.html" class="effect1 active">Home</a></li>
-				<li><a href="events.html">Reviews</a></li>
-				<li><a href="breaking.html">Culture</a></li>
-				<li><a href="entertainment.html">Entertainment</a></li>
+				<?php
+				foreach ($menu as $value) {
+				$loaitin = $value->LoaiTin;
+				$arrLoaitin = explode(',', $loaitin);
+				//print_r($arrLoaitin)
+				?>
 				<li role="presentation" class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-					  Business <span class="caret"></span>
+					  <?=$value->name?> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-					  <li><a href="short-codes.html">Short-Codes</a></li>
-					  <li><a href="icons.html">Icons</a></li>
-					 
+					<?php
+					foreach($arrLoaitin as $loai){
+						//$lt = explode('--', $loai);
+						//print_r($lt)
+						list($id, $name, $alias) = explode('--', $loai);
+						?>
+					  <li><a href="type.php?id=<?=$id?>"><?=$name?></a></li>
+					<?php
+					}
+					?>
 					</ul>
 				</li>
+				<?php
+				}
+				?>
 				<li><a href="contact.html">Contact Us</a></li>
 			</ul>
 		</div>
 	</nav>
+
 <!-- //menu -->
 	
 	<?php
