@@ -79,7 +79,7 @@ $relatedNews = $data['relatedNews'];
 							<?php foreach($relatedNews as $tincungloai){?>
 							<div class="recent-grid">
 								<div class="wom">
-									<a href="#"><img src="public/images/tintuc/<?=$tincungloai->image?>" alt=" " class="img-responsive" /></a>
+									<a href="detail.php?id=<?=$tincungloai->id?>&id_loai=<?=$tincungloai->id_loaitin?>"><img src="public/images/tintuc/<?=$tincungloai->image?>" alt=" " class="img-responsive" /></a>
 								</div>
 								<div class="wom-right">
 									<h4><a href="detail.php?id=<?=$tincungloai->id?>&id_loai=<?=$tincungloai->id_loaitin?>"><?=$tincungloai->title?></a></h4>
@@ -90,59 +90,7 @@ $relatedNews = $data['relatedNews'];
 							<?php } ?>
 						</div>
 					</div>
-					<div class="footer-top-grid1">
-						<h3>Recent Tags</h3>
-						<ul class="tag2">
-							<li><a href="#">awesome</a></li>
-							<li><a href="#">strategy</a></li>
-							<li><a href="#">development</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">css</a></li>
-							<li><a href="#">photoshop</a></li>
-							<li><a href="#">photography</a></li>
-							<li><a href="#">html</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">awesome</a></li>
-							<li><a href="#">strategy</a></li>
-							<li><a href="#">development</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">css</a></li>
-							<li><a href="#">photoshop</a></li>
-							<li><a href="#">photography</a></li>
-							<li><a href="#">html</a></li>
-						</ul>
-						<ul class="tag2">
-							<li><a href="#">awesome</a></li>
-							<li><a href="#">strategy</a></li>
-							<li><a href="#">development</a></li>
-						</ul>
-					</div>
-					<div class="poll">
-						<h3>Poll</h3>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-								60%
-							  </div>
-							</div>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-								80%
-							  </div>
-							</div>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-								90%
-							  </div>
-							</div>
-							<div class="progress p">
-							  <div class="progress-bar bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-								40%
-							  </div>
-							</div>
-					</div>
+				
 				</div>
 				<div class="clearfix"> </div>
 			</div>

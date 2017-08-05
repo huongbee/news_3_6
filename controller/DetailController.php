@@ -24,7 +24,7 @@ class DetailController extends controller{
 		}
 
 		$comment = $model->getComment($id);
-		$relatedNews = $model->getRelatedNews($id, $_GET['id_loai']);
+		$relatedNews = $model->getRelatedNews($id, $id_loai);
 
 		$arrData = array(
 						'tintuc'=>$tintuc, 

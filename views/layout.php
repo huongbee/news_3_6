@@ -83,7 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php
 				}
 				?>
-				<li><a href="contact.html">Contact Us</a></li>
+				<li><a href="dangki">Đăng kí</a></li>
+				<li><a href="dangnhap">Đăng nhập</a></li>
 			</ul>
 		</div>
 	</nav>
