@@ -1,92 +1,55 @@
+<?php
+require('inc/functions.php');
+$tintuc = $data['tintuc'];
+$comments = $data['comment'];
+$relatedNews = $data['relatedNews'];
+// echo'<pre>';
+// print_r($comments);
+// echo'</pre>';
+
+?>
 <div class="single">
 		<div class="container">
 			<div class="single-grid">
 				<div class="col-md-8 blog-left">
 					<div class="blog-left-grid">
 						<div class="blog-leftl">
-							<h4>December <span>31</span></h4>
+							<h4><?=parseMonth(date('m',strtotime($tintuc->created_at)))?><span><?=date('d',strtotime($tintuc->created_at))?></span></h4>
 							<a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>10</a>
 						</div>
 						<div class="blog-leftr">
-							<img src="public/images/25.jpg" alt=" " class="img-responsive" />
-							<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-							reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-							pariatur</p>
+							<img src="public/images/tintuc/<?=$tintuc->image?>" alt=" " class="img-responsive" />
+							<p><?=$tintuc->content?></p>
 							<ul>
-								<li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>User Name</a></li>
-								<li><a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>0 Tages</a></li>
-								<li><a href="#"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i>10 Comments</a></li>
+								<li><a href="#"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><?=count($comments)?> bình luận</a></li>
 							</ul>
 						</div>
 						<div class="clearfix"> </div>
-						<div class="admin-text">
-								<h5>Written By Admin Name</h5>
-								<div class="admin-text-left">
-									<a href="#"><img src="public/images/icon1.png" alt=""/></a>
-								</div>
-								<div class="admin-text-right">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available, 
-									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									<span>View all posts by:<a href="#"> Admin </a></span>
-								</div>
-								<div class="clearfix"> </div>
-						</div>
+						
 						<div class="response">
-							<h4>Responses</h4>
+							<h4>Các bình luận</h4>
+
+							<?php
+							foreach($comments as $cmt){
+							?>
 							<div class="media response-info">
 								<div class="media-left response-text-left">
 									<a href="#">
 										<img class="media-object" src="public/images/icon1.png" alt=""/>
 									</a>
-									<h5><a href="#">Admin</a></h5>
+									<h5><a href="#"><?=$cmt->name?></a></h5>
 								</div>
 								<div class="media-body response-text-right">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available, 
-										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									<p><?=$cmt->content?></p>
 									<ul>
-										<li>October 25, 2016</li>
-										<li><a href="single.html">Reply</a></li>
-									</ul>
-									<div class="media response-info">
-										<div class="media-left response-text-left">
-											<a href="#">
-												<img class="media-object" src="public/images/icon1.png" alt=""/>
-											</a>
-											<h5><a href="#">Admin</a></h5>
-										</div>
-										<div class="media-body response-text-right">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available, 
-												sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-											<ul>
-												<li>October 25, 2016</li>
-												<li><a href="single.html">Reply</a></li>
-											</ul>		
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="media response-info">
-								<div class="media-left response-text-left">
-									<a href="#">
-										<img class="media-object" src="public/images/icon1.png" alt=""/>
-									</a>
-									<h5><a href="#">Admin</a></h5>
-								</div>
-								<div class="media-body response-text-right">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available, 
-										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									<ul>
-										<li>October 25, 2016</li>
-										<li><a href="single.html">Reply</a></li>
+
+										<li><?=date('d-m-Y',strtotime($cmt->created_at))?></li>
+
 									</ul>		
 								</div>
 								<div class="clearfix"> </div>
 							</div>
+							<?php }?>
 						</div>	
 						<div class="coment-form">
 							<h4>Leave your comment</h4>
@@ -111,41 +74,20 @@
 						<li><a href="#">Cum sociis natoque penatibus</a></li>
 					</ul>
 					<div class="recent">
-						<h3>Recent Comments</h3>
+						<h3>Tin cùng loại</h3>
 						<div class="recent-grids">
+							<?php foreach($relatedNews as $tincungloai){?>
 							<div class="recent-grid">
 								<div class="wom">
-									<a href="#"><img src="public/images/6.jpg" alt=" " class="img-responsive" /></a>
+									<a href="#"><img src="public/images/tintuc/<?=$tincungloai->image?>" alt=" " class="img-responsive" /></a>
 								</div>
 								<div class="wom-right">
-									<h4><a href="#">Integer rutrum ante eu</a></h4>
-									<p>Mauris fermentum dictum magna. Sed laoreet aliquam leo. 
-										Ut tellus dolor, dapibus eget.</p>
+									<h4><a href="detail.php?id=<?=$tincungloai->id?>&id_loai=<?=$tincungloai->id_loaitin?>"><?=$tincungloai->title?></a></h4>
+									<p><?=$tincungloai->summary?></p>
 								</div>
 								<div class="clearfix"> </div>
 							</div>
-							<div class="recent-grid">
-								<div class="wom">
-									<a href="#"><img src="public/images/7.jpg" alt=" " class="img-responsive" /></a>
-								</div>
-								<div class="wom-right">
-									<h4><a href="#">Integer rutrum ante eu</a></h4>
-									<p>Mauris fermentum dictum magna. Sed laoreet aliquam leo. 
-										Ut tellus dolor, dapibus eget.</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="recent-grid">
-								<div class="wom">
-									<a href="#"><img src="public/images/8.jpg" alt=" " class="img-responsive" /></a>
-								</div>
-								<div class="wom-right">
-									<h4><a href="#">Integer rutrum ante eu</a></h4>
-									<p>Mauris fermentum dictum magna. Sed laoreet aliquam leo. 
-										Ut tellus dolor, dapibus eget.</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
+							<?php } ?>
 						</div>
 					</div>
 					<div class="footer-top-grid1">

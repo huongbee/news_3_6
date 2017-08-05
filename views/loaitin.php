@@ -23,7 +23,7 @@ $trang = 'https://www.facebook.com/myphamhuyenco96/';
 										<img src="public/images/tintuc/<?=$news->image?>" alt=" " class="img-responsive" />
 									</div>
 									<div class="news-grid-right1">
-										<h4><a href="single.html"><?=$news->title?></a></h4>
+										<h4><a href="detail.php?id=<?=$news->id?>"><?=$news->title?></a></h4>
 										<h5><i><?=date('d-m-Y', strtotime($news->created_at))?></i></h5>
 										<p><?=$news->summary?></p>
 									</div>

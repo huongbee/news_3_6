@@ -1,0 +1,14 @@
+RewriteEngine On
+#RewriteBase /
+RewriteRule trangchu.aspx$ index.php
+RewriteRule dangki$ register.php
+RewriteRule dangnhap$ login.php
+
+
+RewriteRule loaitin-([0-9]+)/type/([0-9]+)$ type.php?id=$1&page=$2
+
+
+
+
+
+ErrorDocument 404 /news3_6/404.html

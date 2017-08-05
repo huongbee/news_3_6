@@ -68,7 +68,7 @@ $tinxemnhieu = $data['tinxemnhieu'];
 
 					?>
 					<div class="marquee1">
-						<a class="breaking" href="detail.php"><?=$noibat->title?></a>
+						<a class="breaking" href="detail.php?id=<?=$noibat->id?>&id_loai=<?=$noibat->id_loaitin?>"><?=$noibat->title?></a>
 					</div>
 					<?php
 					endforeach
@@ -174,7 +174,7 @@ $tinxemnhieu = $data['tinxemnhieu'];
 													
 													</li>
 												</ul>
-												<p><a href="#"><?=$xemnhieu->title?></a></p>
+												<p><a href="detail.php?id=<?=$xemnhieu->id?>&id_loai=<?=$xemnhieu->id_loaitin?>"><?=$xemnhieu->title?></a></p>
 											</div>
 											<div class="clearfix"> </div>
 										</div>
