@@ -6,6 +6,15 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
 				  	<h2>Login</h2>
+				  	<?php
+				  	if(isset($_COOKIE['thanhcong'])){
+				  	?>
+
+				  	<div class="alert alert-success"><?=$_COOKIE['thanhcong']?></div>
+
+				  	<?php
+				  	}
+				  	?>
 				  	<div class="panel-body">
 				    	<form>
 							<div>

@@ -27,6 +27,8 @@ if(isset($_POST['btnSignup'])){
             <div class="col-md-8">
                 <div class="panel panel-default">
 				  	<h2 style="margin-bottom: 20px">Đăng kí</h2>
+				  	
+				  	
 				  	<?php
 				  	if(isset($error)){
 				  	?>
