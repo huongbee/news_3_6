@@ -7,7 +7,7 @@
 		require_once 'mailer/PHPMailerAutoload.php';
 		 
 		// Khai báo tạo PHPMailer
-		$mail = new PHPMailer();
+		$mail = new PHPMailer(true);
 		$mail->Charset = "UTF-8";
 		//Khai báo gửi mail bằng SMTP
 		$mail->IsSMTP();
@@ -29,7 +29,7 @@
 
 
 		$mail->AddAddress($mail_nhan, $ten_nhan);//Email của người nhận
-		$mail->Subject = mb_convert_encoding($tieude, "UTF-8", "auto");//Tiêu đề của thư
+		$mail->Subject = $tieude;//Tiêu đề của thư
 		$mail->MsgHTML($noidung); //Nội dung của bức thư.
 		// $mail->MsgHTML(file_get_contents("email-template.html"), dirname(__FILE__));
 		// Gửi thư với tập tin html

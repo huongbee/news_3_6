@@ -30,14 +30,14 @@ if(isset($_POST['btnSignup'])){
 				  	
 				  	
 				  	<?php
-				  	if(isset($error)){
+				  	if(isset($error) || isset($_COOKIE['loi'])){
+				  		$error = isset($_COOKIE['loi']) ? $_COOKIE['loi'] : $error;
 				  	?>
-
 				  	<div class="alert alert-danger"><?=$error?></div>
-
 				  	<?php
 				  	}
 				  	?>
+
 				  	<div class="panel-body">
 				    	<form method="POST" >
 				    		<div>
