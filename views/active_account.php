@@ -29,6 +29,7 @@ if(isset($_POST['btnActive'])){
                 <div class="panel panel-default">
 				  	<h2 style="margin-bottom: 20px">Kích hoạt tài khoản</h2>
 				  	
+				  	<div class="notification">
 				  	
 				  	<?php
 				  	if(isset($error) || isset($_COOKIE['loi'])){
@@ -46,22 +47,26 @@ if(isset($_POST['btnActive'])){
 				  	<?php
 				  	}
 				  	?>
+				  	</div>
 
 				  	<div class="panel-body">
 				    	<form method="POST" >
 							<br>
 							<div>
 				    			<label>Email</label>
-							  	<input type="email" class="form-control" value="<?=$_GET['email']?>" name="email" aria-describedby="basic-addon1" required readonly>
+							  	<input type="email" class="form-control" value="<?=$_GET['email']?>" id="email" name="email" aria-describedby="basic-addon1" required readonly>
 							</div>
 							<br>	
 							<div>
 				    			<label>Mã kích hoạt</label>
 							  	<input type="text" class="form-control" name="passcode" aria-describedby="basic-addon1" required minlength="6" maxlength="6">
+
 							</div>
 							<br>
 							<br>
 							<button type="submit" class="btn btn-success" name="btnActive">Kích hoạt
+							</button>
+							<button type="button" class="btn btn-primary" id="btnResetPasscode">Quên mã kích hoạt?
 							</button>
 
 				    	</form>
@@ -75,3 +80,35 @@ if(isset($_POST['btnActive'])){
 			<!-- //news-and-events -->
 		</div>
 	</div>
+
+<script>
+	$(document).ready(function(){
+		$('#btnResetPasscode').click(function(){
+			var email = $('#email').val();
+			console.log(email);
+			$.ajax({
+				type:'GET',
+				url:"ajax/forget_passcode.php",
+				data:{mail:email}, //biến gửi đi qua php:giá trị của biến
+				success:function(ketquatuphp){
+					
+					ketquatuphp = ketquatuphp.trim().slice(1);
+					
+					if(ketquatuphp=='true'){
+						$('.notification').html('<div class="alert alert-success">Vui lòng check mail để nhận passcode</div>');
+						$('#btnResetPasscode').attr('disabled','false')
+						
+						return
+					}
+					console.log('lỗi php')
+					$('.notification').html('<div class="alert alert-danger"><p>Email chưa đăng kí tài khoản</p><div><a href="register.php">Đăng kí ngay</a></div></div>');
+
+				},
+				error:function(){
+					console.log('lỗi ajax')
+				}
+			})
+		})
+	})
+
+</script>

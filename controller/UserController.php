@@ -20,7 +20,7 @@ class UserController extends controller{
 			header('Location:register.php');
 			return;
 		}
-		//echo $checkUser->id; die;
+		//echo $_SERVER['SERVER_NAME']; 
 		$passcode = rand(100000,999999);
 
 		$result = $model->addUser($name,$email,md5($password.'huong'),$passcode);
@@ -59,6 +59,7 @@ class UserController extends controller{
 
 	public function postActiveAccount($email,$passcode){
 		$model = new UserModel;
+		
 		$user = $model->findUser($email,$passcode);
 		//var_dump($user); die;
 		if($user){
@@ -84,6 +85,30 @@ class UserController extends controller{
 	public function getLogin(){
 		return $this->loadView('dangnhap');
 	}
+	public function postLogin(){
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+		$model = new UserModel;
+		$user = $model->findUser($email,$passcode=0, md5($password.'huong'));
+		
+		if(!$user){
+			setcookie('loi','Sai thông tin đăng nhập',time()+2);
+			header('Location:login.php');
+			return;
+		}
+		if($user->active != 1 || $user->active == 0){
+			setcookie('loi','Tài khoản chưa kích hoạt, Kích hoạt tài khoản ngay!',time()+2);
+			header('Location:active_account.php?email='.$email);
+			return;
+		}
+		else{
+			$_SESSION['username'] = $user->name;
+			header('Location:index.php');
+			return;
+		}
+	}
+
 	
 }
 

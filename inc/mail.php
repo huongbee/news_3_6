@@ -15,7 +15,7 @@
 		// 0 = off không thông báo bất kì gì, tốt nhất nên dùng khi đã hoàn thành.
 		// 1 = Thông báo lỗi ở client
 		// 2 = Thông báo lỗi cả client và lỗi ở server
-		$mail->SMTPDebug  = 2;
+		$mail->SMTPDebug  = 0;
 		 
 		$mail->Debugoutput = "html"; // Lỗi trả về hiển thị với cấu trúc HTML
 		$mail->Host       = "smtp.gmail.com"; //host smtp để gửi mail
@@ -37,14 +37,7 @@
 		//$mail->AddAttachment("images/attact-tui.gif");//Tập tin cần attach
 		 
 		//Tiến hành gửi email và kiểm tra lỗi
-		if(!$mail->Send()) {
-		  	echo $mail->ErrorInfo;
-
-		} else {
-		  	echo true;
-		}
-
-		
+		echo $mail->Send();
 	}
 
  ?>
