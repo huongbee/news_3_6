@@ -28,7 +28,7 @@ $relatedNews = $data['relatedNews'];
 						
 						<div class="response">
 							<h4>Các bình luận</h4>
-
+							<div id="result_comment"></div>
 							<?php
 							foreach($comments as $cmt){
 							?>
@@ -52,27 +52,21 @@ $relatedNews = $data['relatedNews'];
 							<?php }?>
 						</div>	
 						<div class="coment-form">
-							<h4>Leave your comment</h4>
+							<h4>Viết bình luận</h4>
+							<?php
+							if(!isset($_SESSION['username'])){
+								echo '<p style="color: red">Vui lòng đăng nhập để thêm bình luận</p>';
+							}
+							?>
 							<form>
-								<input type="text" value="Name " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-								<input type="email" value="Email (will not be published)*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email (will not be published)*';}" required="">
-								<input type="text" value="Website" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" required="">
-								<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Comment...';}" required="">Your Comment...</textarea>
-								<input type="submit" value="Submit Comment" >
+								<textarea type="text" required id="txtComment"></textarea>
+								<input type="button" value="Gửi bình luận" id="btnSendComment" >
 							</form>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 blog-right">
-					<h3>Categories</h3>
-					<ul>
-						<li><a href="#">Aliquam erat volutpat</a></li>
-						<li><a href="#">Integer rutrum ante eu lacus</a></li>
-						<li><a href="#">Cum sociis natoque penatibus</a></li>
-						<li><a href="#">Mauris fermentum dictum magna</a></li>
-						<li><a href="#">Sed laoreet aliquam leo</a></li>
-						<li><a href="#">Cum sociis natoque penatibus</a></li>
-					</ul>
+					
 					<div class="recent">
 						<h3>Tin cùng loại</h3>
 						<div class="recent-grids">
@@ -96,3 +90,49 @@ $relatedNews = $data['relatedNews'];
 			</div>
 		</div>
 	</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog  modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p class="modal-title">Gửi bình luận thành công</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<script>
+	$(document).ready(function(){
+		$('#btnSendComment').click(function(){
+			var content = $('#txtComment').val();
+			var id_user = "<?=@$_SESSION['id_user']?>";
+			var name_user = "<?=@$_SESSION['username']?>";
+			var id_tin = "<?=@$_GET['id']?>";
+			//console.log(content)
+			var commentHTML = '<div class="media response-info"><div class="media-left response-text-left"><a href="#"><img class="media-object" src="public/images/icon1.png" alt=""/></a><h5><a href="#">'+name_user+'</a></h5></div><div class="media-body response-text-right"><p>'+content+'</p><ul><li>Vừa xong</li></ul></div><div class="clearfix"> </div></div>'
+			$.ajax({
+				type:'POST',
+				url:"ajax/add_comment.php",
+				data:{
+					content: content, //biến gửi đi:giá trị
+					id_user: id_user,
+					id_tin: id_tin
+				},
+				success:function(data){
+					if(data=='false'){
+						console.log('lỗi php');
+						return;
+					}
+					//console.log('thành công')
+					$('#result_comment').append(commentHTML)
+					$('#txtComment').val('')
+				},
+				error:function(data){
+					console.log('lỗi ajax')
+				}
+			})
+		})
+	})
+</script>

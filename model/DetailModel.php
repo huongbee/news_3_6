@@ -14,7 +14,8 @@ class DetailModel extends database{
 				FROM comment 
 				INNER JOIN users 
 					ON users.id=comment.id_user 
-				WHERE id_tintuc=$id_tin";
+				WHERE id_tintuc=$id_tin 
+				ORDER BY comment.id DESC";
 		$this->setQuery($sql);
 		return $this->loadAllRows();
 	}
@@ -29,6 +30,18 @@ class DetailModel extends database{
 				LIMIT 0,5";
 		$this->setQuery($sql);
 		return $this->loadAllRows();
+	}
+
+	public function addComment($id_tin,$id_user,$content){
+		$sql = "INSERT INTO comment(id_tintuc,id_user,content) VALUES(?,?,?)";
+		$this->setQuery($sql);
+		$result = $this->execute(array($id_tin,$id_user,$content));
+		if($result){
+			return $this->getLastId();
+		}
+		else{
+			return false;
+		}
 	}
 }
 

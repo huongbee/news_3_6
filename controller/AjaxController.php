@@ -1,6 +1,7 @@
 <?php
 include('../inc/mail.php');
 require_once('../model/UserModel.php');
+require_once('../model/DetailModel.php');
 class AjaxController{
 
 	public function getResetPasscode(){
@@ -31,6 +32,23 @@ class AjaxController{
 		}
 		else{
 			echo 'false'; //false
+		}
+	}
+
+
+	public function addComment(){
+		$id_tin = $_POST['id_tin'];
+		$id_user = $_POST['id_user'];
+		$content = $_POST['content'];
+
+		$model = new DetailModel;
+		$cmt = $model->addComment($id_tin,$id_user,$content);
+		//echo $cmt; die;
+		if($cmt>0){
+			echo 'true';
+		}
+		else{
+			echo 'false';
 		}
 	}
 }

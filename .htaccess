@@ -1,9 +1,9 @@
 RewriteEngine On
-RewriteBase /
+#RewriteBase /
 RewriteRule trangchu.aspx$ index.php
 RewriteRule dangki$ register.php
 RewriteRule dangnhap$ login.php
-
+RewriteRule dangxuat$ logout.php
 
 RewriteRule loaitin-([0-9]+)/type/([0-9]+)$ type.php?id=$1&page=$2
 

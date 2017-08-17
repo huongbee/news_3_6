@@ -104,6 +104,7 @@ class UserController extends controller{
 		}
 		else{
 			$_SESSION['username'] = $user->name;
+			$_SESSION['id_user'] = $user->id;
 			header('Location:index.php');
 			return;
 		}

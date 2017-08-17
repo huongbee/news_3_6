@@ -1,6 +1,6 @@
 <?php
 ob_start();
-
+session_start();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -76,8 +76,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php
 				}
 				?>
-				<li><a href="dangki">Đăng kí</a></li>
-				<li><a href="dangnhap">Đăng nhập</a></li>
+				<?php if(isset($_SESSION['username'])){ ?>
+
+					<li  role="presentation" class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Chào bạn, <?=$_SESSION['username']?> 
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="dangxuat">Đăng xuất</a></li>
+						</ul>
+					</li>
+					
+				<?php } else{ ?>
+					
+					<li><a href="dangki">Đăng kí</a></li>
+					<li><a href="dangnhap">Đăng nhập</a></li>
+				
+				<?php } ?>
+				
+
 			</ul>
 		</div>
 	</nav>
@@ -91,7 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	?>
 
-
+	<div id="loading-img"><img src="public/images/loading-icon.gif"></div>
 <!-- footer -->
 	
 	<div class="footer">

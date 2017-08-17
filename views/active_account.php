@@ -84,6 +84,8 @@ if(isset($_POST['btnActive'])){
 <script>
 	$(document).ready(function(){
 		$('#btnResetPasscode').click(function(){
+			//$('#loading-img').css('display','block');
+			$('#loading-img').show();
 			var email = $('#email').val();
 			console.log(email);
 			$.ajax({
@@ -91,7 +93,8 @@ if(isset($_POST['btnActive'])){
 				url:"ajax/forget_passcode.php",
 				data:{mail:email}, //biến gửi đi qua php:giá trị của biến
 				success:function(ketquatuphp){
-					
+					//$('#loading-img').css('display','none');
+					$('#loading-img').hide();
 					ketquatuphp = ketquatuphp.trim().slice(1);
 					
 					if(ketquatuphp=='true'){
