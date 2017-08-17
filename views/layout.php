@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<span class="icon-bar"></span>
 		  </button>
 			<div class="logo">
-				<a class="navbar-brand" href="index.html"><span>T</span></a>
+				<a class="navbar-brand" href="index.html"><span>H</span></a>
 				<form method="GET" style="float: left;margin: 20px 10px" action="search.php">
 					<input type="text" name="q" class="form-control" style="float: left;width: 75%">
 					<button type="submit" style="float: left;margin-left: 5px" class="btn btn-success">Tìm</button>

@@ -52,6 +52,14 @@ class HomeModel extends database{
 		return $this->loadAllRows();
 
 	}
+
+	public function search($keyword){
+		$sql = "SELECT * FROM tintuc 
+				WHERE title LIKE '%$keyword%' 
+					OR summary LIKE '%$keyword%' ";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
+	}
 }
 
 

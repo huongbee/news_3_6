@@ -24,6 +24,13 @@ class HomeController extends controller{
 
 		return $this->loadView('trangchu',$arrData);
 	}
+
+	function getSearch(){
+		$tukhoa = $_GET['q'];
+		$model = new HomeModel();
+		$result = $model->search($tukhoa);
+		return $this->loadView('search',$result);
+	}
 }
 
 ?>
