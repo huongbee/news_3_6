@@ -3,6 +3,7 @@ require('inc/functions.php');
 $tintuc = $data['tintuc'];
 $comments = $data['comment'];
 $relatedNews = $data['relatedNews'];
+$cmtHTML = $data['cmtHTML'];
 // echo'<pre>';
 // print_r($comments);
 // echo'</pre>';
@@ -50,7 +51,9 @@ $relatedNews = $data['relatedNews'];
 								<div class="clearfix"> </div>
 							</div>
 							<?php }?>
+
 						</div>	
+						<?=$cmtHTML?>
 						<div class="coment-form">
 							<h4>Viết bình luận</h4>
 							<?php
@@ -128,6 +131,8 @@ $relatedNews = $data['relatedNews'];
 					//console.log('thành công')
 					$('#result_comment').append(commentHTML)
 					$('#txtComment').val('')
+					$('#myModal').modal('show')
+
 				},
 				error:function(data){
 					console.log('lỗi ajax')

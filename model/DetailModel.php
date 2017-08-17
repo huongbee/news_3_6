@@ -9,13 +9,16 @@ class DetailModel extends database{
 		return $this->loadRow();
 	} 
 
-	public function getComment($id_tin){
+	public function getComment($id_tin, $vitri,$soluong){ //có phân trang
 		$sql = "SELECT comment.*,users.name 
 				FROM comment 
 				INNER JOIN users 
 					ON users.id=comment.id_user 
 				WHERE id_tintuc=$id_tin 
-				ORDER BY comment.id DESC";
+				ORDER BY comment.id DESC ";
+		if($vitri>=0){
+			$sql .= " LIMIT $vitri,$soluong";
+		}
 		$this->setQuery($sql);
 		return $this->loadAllRows();
 	}
