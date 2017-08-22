@@ -32,6 +32,14 @@ class TheloaiModel extends database{
 		$this->setQuery($sql);
 		return $this->execute();
 	}
+
+
+	function deleteTheloai($alias){
+		$sql = "DELETE FROM theloai 
+				WHERE alias = '$alias'";
+		$this->setQuery($sql);
+		return $this->execute();
+	}
 }
 
 

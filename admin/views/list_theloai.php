@@ -40,7 +40,7 @@ $theloai = $data;
 	        <td><a href="#">Xem loại tin</a></td>
 	        <td>
 	        	<a href="edit_theloai.php?alias=<?=$tl->alias?>"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
-	        	<i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+	        	<a href="delete_theloai.php?alias=<?=$tl->alias?>"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
 	        </td>
 	      </tr>
 	    <?php

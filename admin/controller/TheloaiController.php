@@ -42,8 +42,10 @@ class TheloaiController extends AdminController{
 
 			$hinh = $model->editImgTheloai($nameImg,$oldAlias);
 
-			if($hinh){
-
+			if($hinh && $result){
+				$oldImg = $_POST['name_img'];
+				unlink("../public/images/tintuc/$oldImg");
+			
 				$flag = true;
 			}
 			else{
@@ -52,8 +54,6 @@ class TheloaiController extends AdminController{
 
 		}
 		if($result && $flag){
-			$oldImg = $_POST['name_img'];
-			unlink("../public/images/tintuc/$oldImg");
 			
 			setcookie('thanhcong','Sửa thành công', time()+2);
 			header('Location:index.php');
@@ -61,10 +61,20 @@ class TheloaiController extends AdminController{
 		}
 		setcookie('thatbai','Sửa không thành công. Vui lòng thử lại', time()+2);
 		return ;
-		
+	}
 
-
-
+	function deleteTheLoai(){
+		$alias = $_GET['alias'];
+		$model = new TheloaiModel;
+		$result = $model->deleteTheloai($alias);
+		if($result){
+			setcookie('thanhcong','Xóa thành công', time()+2);
+		}
+		else{
+			setcookie('thatbai','Sửa không thành công. Vui lòng thử lại', time()+2);
+		}
+		header('Location:index.php');
+		return;
 	}
 }
 
