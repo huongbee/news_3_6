@@ -15,6 +15,23 @@ class TheloaiModel extends database{
 		$this->setQuery($sql);
 		return $this->loadRow();
 	}
+
+
+	function editTheloai($name,$newAlias, $oldAlias){
+		$sql = "UPDATE theloai 
+				SET name='$name', alias = '$newAlias' 
+				WHERE alias = '$oldAlias'";
+		$this->setQuery($sql);
+		return $this->execute();
+	}
+
+	function editImgTheloai($image, $alias){
+		$sql = "UPDATE theloai 
+				SET image = '$image' 
+				WHERE alias = '$alias'";
+		$this->setQuery($sql);
+		return $this->execute();
+	}
 }
 
 

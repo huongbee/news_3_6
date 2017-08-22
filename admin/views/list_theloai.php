@@ -4,9 +4,20 @@ $theloai = $data;
 ?>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><b>Danh sách thể loại</b>
-  </div>
+  <div class="panel-heading"><b>Danh sách thể loại</b></div>
   <div class="panel-body">
+  	<?php
+  	if(isset($_COOKIE['thanhcong'])){
+  	?>
+  		<div class="col-md-4">
+	  		<div class='alert alert-success'>
+	  			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  			<p><?=$_COOKIE['thanhcong']?></p>
+	  		</div>
+	  	</div>
+  	<?php
+  	}
+  	?>
       <table class="table table-hover">
       	<thead>
 	      <tr>
