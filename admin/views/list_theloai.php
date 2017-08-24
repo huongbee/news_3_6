@@ -18,6 +18,18 @@ $theloai = $data;
   	<?php
   	}
   	?>
+  	<?php
+  	if(isset($_COOKIE['thatbai'])){
+  	?>
+  		<div class="col-md-4">
+	  		<div class='alert alert-danger'>
+	  			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  			<p><?=$_COOKIE['thatbai']?></p>
+	  		</div>
+	  	</div>
+  	<?php
+  	}
+  	?>
       <table class="table table-hover">
       	<thead>
 	      <tr>

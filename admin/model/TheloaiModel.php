@@ -22,7 +22,7 @@ class TheloaiModel extends database{
 				SET name='$name', alias = '$newAlias' 
 				WHERE alias = '$oldAlias'";
 		$this->setQuery($sql);
-		return $this->execute();
+		return $this->executeCustom();
 	}
 
 	function editImgTheloai($image, $alias){
@@ -30,7 +30,7 @@ class TheloaiModel extends database{
 				SET image = '$image' 
 				WHERE alias = '$alias'";
 		$this->setQuery($sql);
-		return $this->execute();
+		return $this->executeCustom();
 	}
 
 

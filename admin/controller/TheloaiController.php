@@ -31,36 +31,38 @@ class TheloaiController extends AdminController{
 		$oldAlias = $_GET['alias'];
 
 		$model = new TheloaiModel;
-		$result = $model->editTheloai($name,$newAlias, $oldAlias);
-
+		
 		$flag = true;
-		//$hinh = $_FILES['hinh'];
 		if($_FILES['hinh']['name'] !=''){
 			$nameImg = date('Y-m-d').'-'.time().'-'.$_FILES['hinh']['name'];
 
-			move_uploaded_file($_FILES['hinh']['tmp_name'], "../public/images/tintuc/$nameImg");
-
+			$ck_upload = move_uploaded_file($_FILES['hinh']['tmp_name'], "../public/images/tintuc/$nameImg");
+			if(!$ck_upload){
+				setcookie('thatbai','Thư mục không tồn tại', time()+2);
+				header('Location:index.php');
+				return ;
+			}
 			$hinh = $model->editImgTheloai($nameImg,$oldAlias);
-
-			if($hinh && $result){
+			$result = $model->editTheloai($name,$newAlias, $oldAlias);
+			if($result && $hinh){			
 				$oldImg = $_POST['name_img'];
 				unlink("../public/images/tintuc/$oldImg");
-			
 				$flag = true;
 			}
 			else{
 				$flag = false;
 			}
-
 		}
-		if($result && $flag){
-			
-			setcookie('thanhcong','Sửa thành công', time()+2);
-			header('Location:index.php');
-			return;
+		else{
+			$result = $model->editTheloai($name,$newAlias, $oldAlias);
 		}
-		setcookie('thatbai','Sửa không thành công. Vui lòng thử lại', time()+2);
-		return ;
+		if(!$result || !$flag){
+			setcookie('thatbai','Sửa không thành công. Vui lòng thử lại', time()+2);
+			return ;
+		}
+		setcookie('thanhcong','Sửa thành công', time()+2);
+		header('Location:index.php');
+		return;
 	}
 
 	function deleteTheLoai(){
