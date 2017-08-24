@@ -65,15 +65,25 @@ class TheloaiController extends AdminController{
 
 	function deleteTheLoai(){
 		$alias = $_GET['alias'];
+		if($alias==""){
+			echo 'false';
+			return;
+		}
 		$model = new TheloaiModel;
 		$result = $model->deleteTheloai($alias);
 		if($result){
+			echo 'true';
+		}
+		else{
+			echo 'false';
+		}
+		/*if($result){
 			setcookie('thanhcong','Xóa thành công', time()+2);
 		}
 		else{
 			setcookie('thatbai','Sửa không thành công. Vui lòng thử lại', time()+2);
 		}
-		header('Location:index.php');
+		header('Location:index.php');*/
 		return;
 	}
 }
