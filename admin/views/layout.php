@@ -14,7 +14,7 @@ ob_start();
     <link rel="shortcut icon" href="public/img/favicon.html">
 
     <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
-
+    <base href="http://localhost/news3_6/admin/">
     <!-- Bootstrap core CSS -->
     <link href="public/css/bootstrap.min.css" rel="stylesheet">
     <link href="public/css/bootstrap-reset.css" rel="stylesheet">
@@ -463,6 +463,14 @@ ob_start();
         }    
     }
   </script>
+  
+<script src="public/js/jquery.dataTables.min.js"></script>
+<script src="public/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
   </body>
 
 <!-- Mirrored from thevectorlab.net/flatlab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:43:32 GMT -->

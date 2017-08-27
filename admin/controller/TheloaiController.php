@@ -88,6 +88,40 @@ class TheloaiController extends AdminController{
 		header('Location:index.php');*/
 		return;
 	}
+
+
+	public function getAddTheLoai(){
+		return $this->loadView('add_theloai');
+	}
+
+	public function postAddTheloai(){
+		$name = $_POST['nameTL'];
+		$alias = changeTitle($name);
+		$hinh = $_FILES['hinh'];
+		if($hinh['name']=='' || $name ==''){
+			setcookie('thatbai','Vui lòng nhập đủ thông tin', time()+2);
+			header('Location:add_theloai.php');
+			return;
+		}
+		//upload file vào folder
+		$nameImg = date('Y-m-d').'-'.time().'-'.$_FILES['hinh']['name'];
+		move_uploaded_file($_FILES['hinh']['tmp_name'], "../public/images/tintuc/$nameImg");
+
+		//lưu vào db
+		$model = new TheloaiModel;
+		$result = $model->addTheloai($name,$alias,$nameImg);
+		if($result>0){
+			setcookie('thanhcong','Thêm thành công', time()+2);
+			header('Location:index.php');
+			return;
+		}
+		else{
+			setcookie('thatbai','Vui lòng nhập đủ thông tin', time()+2);
+			header('Location:add_theloai.php');
+			return;
+		}
+
+	}
 }
 
 

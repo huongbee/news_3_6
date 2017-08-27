@@ -1,12 +1,11 @@
 <?php
 
-
-$theloai = $data;
+$loaitin = $data['loaitin'];
+$theloai = $data['theloai'];
 
 ?>
-
 <div class="panel panel-default">
-  <div class="panel-heading"><b>Danh sách thể loại</b></div>
+  <div class="panel-heading"><b>Danh sách loại tin thuộc thể loại <span style="color: red"><?=$theloai->name?></span></b></div>
   <div class="panel-body">
   	<?php
   	if(isset($_COOKIE['thanhcong'])){
@@ -36,22 +35,20 @@ $theloai = $data;
       	<thead>
 	      <tr>
 	        <th>STT</th>
-	        <th>Tên thể loại</th>
-	        <th>Hình</th>
-	        <th>Danh sách loại tin</th>
+	        <th>Tên loại tin</th>
+	        <th>Danh sách tin tức</th>
 	        <th>#</th>
 	      </tr>
 	    </thead>
 	    <tbody>
 	    <?php
 	    $stt = 1;
-	    foreach($theloai as $tl):
+	    foreach($loaitin as $tl):
 	    ?>
 	      <tr>
 	        <td><?=$stt?></td>
 	        <td><?=$tl->name?></td>
-	        <td><img src="../public/images/tintuc/<?=$tl->image?>" width="100px"></td>
-	        <td><a href="list_loaitin.php?id_loai=<?=$tl->id?>">Xem loại tin</a></td>
+	        <td><a href="#">Xem tin tức</a></td>
 	        <td>
 	        	<a href="edit_theloai.php?alias=<?=$tl->alias?>"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
 	        	<a href="#" class="delete" dataAlias="<?=$tl->alias?>"  data-toggle="modal" data-target="#myModal"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
@@ -84,44 +81,3 @@ $theloai = $data;
 
   </div>
 </div>
-
-<script src="public/js/jquery.js"></script>
-<script>
-	$(document).ready(function(){
-		$('.delete').click(function(){
-			$('.error').html('')
-			var alias_theloai = $(this).attr('dataAlias')
-			if(alias_theloai!=''){
-				$('#btnAccept').click(function(){
-					console.log(alias_theloai)
-
-					$.ajax({
-						url:"delete_theloai.php",
-						type:"GET",
-						data:{
-							alias:alias_theloai //alias: biến truyền qua ctl, 
-						},
-						success:function(result){
-							if($.trim(result)=="true"){
-								$('.error').html('Xóa thành công')
-								setTimeout(function(){ 								
-									window.location.reload(true)
-								}, 3000);
-								
-							}
-							else{
-								$('.error').html('Không thể xóa loại tin này')
-								alias_theloai = '';
-							}
-						}
-					})
-				})
-			}
-			if(alias_theloai==''){
-				$('.error').html('')
-			}
-			//alias_theloai = '';
-
-		})
-	})
-</script>
