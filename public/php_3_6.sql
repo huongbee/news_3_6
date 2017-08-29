@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2017 at 12:44 PM
+-- Generation Time: Aug 29, 2017 at 02:17 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `php_3_6`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `passcode` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `avatar`, `passcode`, `active`, `created_at`, `updated_at`) VALUES
+(1, 'Hương', 'huongnguyenak96@gmail.com', '2345678', 'http://online.khoapham.vn/teacher/img/profile/huong.jpg', '2333', 1, '2017-08-14 04:24:26', '2017-08-09 01:18:25');
 
 -- --------------------------------------------------------
 
@@ -247,15 +272,13 @@ CREATE TABLE `theloai` (
 --
 
 INSERT INTO `theloai` (`id`, `name`, `alias`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Xã Hội', 'Xa-Hoi', '24.jpg', NULL, NULL),
-(2, 'Thế Giới', 'The-Gioi', '17.jpg', NULL, NULL),
+(1, 'Xã hộidfghj', 'xa-hoidfghj', '2017-08-24-1503577241-1.jpg', NULL, NULL),
+(2, 'Thế Giới w', 'the-gioi-w', '17.jpg', NULL, NULL),
 (3, 'Kinh Doanh', 'Kinh-Doanh', '12.jpg', NULL, NULL),
 (4, 'Văn Hoá', 'Van-Hoa', '15.jpg', NULL, NULL),
 (5, 'Thể Thao', 'The-Thao', '22.jpg', NULL, NULL),
 (6, 'Pháp Luật', 'Phap-Luat', '10.jpg', NULL, NULL),
-(7, 'Đời Sống', 'Doi-Song', '14.jpg', NULL, NULL),
-(8, 'Khoa Học', 'Khoa-Hoc', '18.jpg', NULL, NULL),
-(9, 'Vi Tính', 'Vi-Tinh', '25.jpg', NULL, NULL);
+(8, '345678p', '345678p', '2017-08-26-1503746138-seo.jpg', '2017-08-26 11:15:38', '2017-08-26 11:15:38');
 
 -- --------------------------------------------------------
 
@@ -324,7 +347,7 @@ INSERT INTO `tintuc` (`id`, `title`, `alias`, `summary`, `content`, `image`, `no
 (40, 'Mai Châu mờ sương ngày đầu năm', 'Mai-Chau-Mo-Suong-Ngay-Dau-Nam', 'Trong ngày đầu của năm mới 2011, khung cảnh ở bản Hang Kia, Mai Châu (Hòa Bình) hiện lên huyền ảo trong làn sương mịt mù. Sương mù kèm theo thời tiết giá lạnh 13 độ C tại Mai Châu sáng mùng 1 Tết Dương lịch. Một trong những ngôi nhà tại bản Hang Kia chìm trong sương. Xe máy đi lại khó khăn. Thời điểm giáp xuân, những cây hoa mận đã nở nhưng khó có thể nhận ra trong làn sương mờ ảo. Một người phụ nữ Mông cho gia cầm ăn. Những đứa trẻ cùng nhau chơi quay. Một em bé thiếu quần mặc trong giá rét. Hai mẹ con người dân tộc Mông sưởi ấm trong căn nhà gỗ. Những người đàn ông đang quây quần trong bữa cơm chào năm mới. Một người đàn ông trở về nhà cùng chiếc khèn.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'maichau1.jpg', 1, 8777, 3, NULL, NULL),
 (41, 'Thi viết về những trải nghiệm kỳ thú ở Thái Lan', 'Thi-Viet-Ve-Nhung-Trai-Nghiem-Ky-Thu-O-Thai-Lan', 'Mỗi tháng VnExpress.net sẽ tặng một cặp vé máy bay khứ hồi cho độc giả gửi bài viết hay nhất về du lịch trên đất nước Thái Lan. ', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'chua-1.jpg', 1, 22, 3, NULL, NULL),
 (42, 'Trải nghiệm cảm giác sống chậm tại Côn Đảo', 'Trai-Nghiem-Cam-Giac-Song-Cham-Tai-Con-Dao', 'Sự vắng vẻ, phong cảnh tự nhiên cùng sự ra đời của khu nghỉ dưỡng cao cấp giúp Côn Đảo trở thành địa điểm lý tưởng cho người muốn trải nghiệm cảm giác sống chậm.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'New_Image1.JPG', 1, 88, 3, NULL, NULL),
-(43, 'Du lịch kết hợp mua sắm Tết tại Trung Quốc', 'Du-Lich-Ket-Hop-Mua-Sam-Tet-Tai-Trung-Quoc', 'Hai tour du lịch kết hợp mua sắm Tết tại Trung Quốc là Nam Ninh - Quảng Châu và Thượng Hải - Hàng Châu - Tô Châu phục vụ du khách có nhu cầu mua sắm trong mùa siêu giảm giá trước Tết Nguyên đán.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'Hang-Chau--Trung-Quoc.jpg', 1, 8541, 3, NULL, NULL),
+(43, 'Du lịch kết hợp mua sắm Tết tại Trung Quốc', 'Du-Lich-Ket-Hop-Mua-Sam-Tet-Tai-Trung-Quoc', 'Hai tour du lịch kết hợp mua sắm Tết tại Trung Quốc là Nam Ninh - Quảng Châu và Thượng Hải - Hàng Châu - Tô Châu phục vụ du khách có nhu cầu mua sắm trong mùa siêu giảm giá trước Tết Nguyên đán.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'Hang-Chau--Trung-Quoc.jpg', 1, 8551, 3, NULL, NULL),
 (44, 'Ngăn chặn hiện tượng tiêu cực mùa lễ hội', 'Ngan-Chan-Hien-Tuong-Tieu-Cuc-Mua-Le-Hoi', 'Bộ Văn hóa Thể thao và Du lịch vừa chỉ đạo các khách sạn, cơ sở lưu trú du lịch đảm bảo an toàn vệ sinh thực phẩm, không tăng giá, ép giá đối với du khách dịp tết Tân Mão.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'a4.jpg', 1, 6545, 3, NULL, NULL),
 (45, '14 ngày trải nghiệm tại 3 quốc gia châu Âu', '14-Ngay-Trai-Nghiem-Tai-3-Quoc-Gia-Chau-Au', 'Với chuyến đi 14 ngày, bạn sẽ được tới thăm 3 quốc gia châu Âu gồm kinh đô ánh sáng - Pháp, ngã tư của các nền văn minh châu Âu - Thụy Sĩ và cái nôi của nền nghệ thuật thế giới - Italy.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'chau-au.jpg', 1, 896, 3, NULL, NULL),
 (46, 'Noel và năm mới tại Vinpearl Resort & Spa', 'Noel-Va-Nam-Moi-Tai-Vinpearl-Resort---Spa', 'Ngày 24, 25/12, khách du lịch ở tại Vinpearl Resort & Spa sẽ được tham gia các hoạt động vui chơi ngoài trời vui nhộn. Vào ngày 31/12, tiệc đón năm mới sẽ được tổ chức trong không gian ấm cúng với nến, rượu vang, chocolate.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', '8.jpg', 1, 63, 3, NULL, NULL),
@@ -408,7 +431,7 @@ INSERT INTO `tintuc` (`id`, `title`, `alias`, `summary`, `content`, `image`, `no
 (123, 'Ngành quản trị khách sạn và du lịch tại Thụy Sĩ', 'Nganh-Quan-Tri-Khach-San-Va-Du-Lich-Tai-Thuy-Si', 'G’Connect Education tổ chức buổi giới thiệu thông tin du học Thụy Sĩ với đại diện trường Quản lý khách sạn IHTTI vào từ 17h30 đến 20h30 ngày 24/2 tại khách sạn Sheraton, 88 Đồng Khởi, quận 1, TP HCM (Hanoi Room, tầng 2)', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'Festival-17_Ve-tranh.jpg', 1, 0, 4, NULL, NULL),
 (124, 'Du học tại Queen Mary và London Metropolitan (Anh)', 'Du-Hoc-Tai-Queen-Mary-Va-London-Metropolitan--Anh-', 'Đại diện trường Queen Mary và London Metropolitan sẽ tham gia hội thảo tuyển sinh được tổ chức tại Hà Nội và TP HCM.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'sunrise-1.jpg', 1, 983, 4, NULL, NULL),
 (125, 'Các trường Nhật ngữ tuyển sinh', 'Cac-Truong-Nhat-Ngu-Tuyen-Sinh', 'Đại diện tuyển sinh của các trường Nhật ngữ tổ chức phỏng vấn và nhận hồ sơ trực tiếp từ học sinh có nguyện vọng du học Nhật Bản cho kỳ khai giảng tháng 7 tại Trung tâm thương mại và hợp tác quốc tế UDIC, Hà Nội.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'toi1.jpg', 1, 0, 4, NULL, NULL),
-(126, 'Học bổng 70% học phí đại học và cao học tại Mỹ', 'Hoc-Bong-70--Hoc-Phi-Dai-Hoc-Va-Cao-Hoc-Tai-My', 'Hội thảo giới thiệu chương trình học bổng được tổ chức lúc 14h ngày 24/2 tại số 25 Vạn Bảo, Ba Đình, Hà Nội. 5 sinh viên khá, giỏi nộp hồ sơ đầu tiên sẽ được miễn 100% dịch vụ phí.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'ASCI-250.jpg', 1, 0, 4, NULL, NULL),
+(126, 'Học bổng 70% học phí đại học và cao học tại Mỹ', 'Hoc-Bong-70--Hoc-Phi-Dai-Hoc-Va-Cao-Hoc-Tai-My', 'Hội thảo giới thiệu chương trình học bổng được tổ chức lúc 14h ngày 24/2 tại số 25 Vạn Bảo, Ba Đình, Hà Nội. 5 sinh viên khá, giỏi nộp hồ sơ đầu tiên sẽ được miễn 100% dịch vụ phí.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'ASCI-250.jpg', 0, 0, 4, NULL, NULL),
 (127, 'Du học Singapore cùng Tập đoàn giáo dục Kaplan, Mỹ', 'Du-Hoc-Singapore-Cung-Tap-Doan-Giao-Duc-Kaplan,-My', 'Hội thảo giới thiệu chương trình được tổ chức lúc 16h ngày 19/2 tại khách sạn Kim Đô, 133 Nguyễn Huệ, quận 1, TP HCM. Tham gia chương trình học sinh có cơ hội nhận học bổng trị giá 135 triệu đồng.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'INCE.jpg', 1, 0, 4, NULL, NULL),
 (128, 'Chương trình học bổng 2011 của MDIS, Singapore', 'Chuong-Trinh-Hoc-Bong-2011-Cua-Mdis,-Singapore', 'MDIS giới thiệu 4 chương trình học bổng cho các bậc thạc sĩ, cử nhân, cao đẳng hoặc cao đẳng nâng cao và học bổng khuyến học chương trình cử nhân hoặc thạc sĩ năm 2011.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', 'MDIS.jpg', 1, 0, 4, NULL, NULL),
 (129, 'Lập kế hoạch du học Australia năm 2011', 'Lap-Ke-Hoach-Du-Hoc-Australia-Nam-2011', 'Bạn sẽ được biết về cơ hội học tập tại Australia trong năm 2011 và những năm tiếp theo trong hội thảo từ 17h30 đến 19h30 ngày 18/2 tại khách sạn Equatorial số 242 Trần Bình Trọng, quận 5, TP HCM.', '</h3>Nội dung tin tức: Khoá học Lập trình PHP tại trung tâm đào tạo tin học khoa phạm</h3>\r\n    	<p>\r\n    	<b>Hotline kỹ thuật <b>: 0967 908 907<br>\r\n    	<b>Hotline tư vấn kháo học <b>: 094 276 4080<br>\r\n    	<b>Địa chỉ </b>: 90 Lê Thị Riêng, P.Bến Thành, Q1, TPHCM<br>\r\n    	<b>Website</b>: khoapham.vn<br>\r\n    	<b>Học Online tại :</b>online.khoapham.vn<br>\r\n    	</p>', '400x400.jpg', 1, 0, 4, NULL, NULL),
@@ -1353,6 +1376,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `passcode`, `active`, `c
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
@@ -1398,6 +1428,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
@@ -1416,7 +1451,7 @@ ALTER TABLE `slide`
 -- AUTO_INCREMENT for table `theloai`
 --
 ALTER TABLE `theloai`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tintuc`
 --
