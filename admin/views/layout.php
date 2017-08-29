@@ -267,8 +267,9 @@ ob_start();
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="public/img/avatar1_small.jpg">
-                            <span class="username">Jhon Doue</span>
+                            <img src="<?=$_SESSION['avatar']!='' ? $_SESSION['avatar'] : 'public/img/avatar1_small.jpg';?>" width="30px"
+                            >
+                            <span class="username"><?=$_SESSION['admin'];?></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -276,7 +277,7 @@ ob_start();
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                             <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                            <li><a href="dangxuat.php"><i class="fa fa-key"></i> Log Out</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -471,7 +472,7 @@ ob_start();
         $('#example').DataTable();
     } );
 </script>
-  </body>
+</body>
 
 <!-- Mirrored from thevectorlab.net/flatlab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:43:32 GMT -->
 </html>

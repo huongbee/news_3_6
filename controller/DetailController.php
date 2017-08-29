@@ -16,6 +16,8 @@ class DetailController extends controller{
 		$id = $_GET['id'];
 
 		$model = new DetailModel;
+
+		$model->updateView($id);
 		$tintuc = $model->getDetailNews($id);
 
 		$id_loai = $tintuc->id_loaitin;

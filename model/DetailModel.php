@@ -46,6 +46,13 @@ class DetailModel extends database{
 			return false;
 		}
 	}
+
+
+	public function updateView($id_tin){
+		$sql = "UPDATE tintuc SET views=views+1 WHERE id = $id_tin";
+		$this->setQuery($sql);
+		return $this->execute();
+	}
 }
 
 

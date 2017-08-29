@@ -16,7 +16,7 @@ $cmtHTML = $data['cmtHTML'];
 					<div class="blog-left-grid">
 						<div class="blog-leftl">
 							<h4><?=parseMonth(date('m',strtotime($tintuc->created_at)))?><span><?=date('d',strtotime($tintuc->created_at))?></span></h4>
-							<a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i>10</a>
+							<a href="#"><i class="glyphicon glyphicon-tags" aria-hidden="true"></i><?=$tintuc->views?></a>
 						</div>
 						<div class="blog-leftr">
 							<img src="public/images/tintuc/<?=$tintuc->image?>" alt=" " class="img-responsive" />
